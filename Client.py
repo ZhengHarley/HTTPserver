@@ -35,3 +35,4 @@ print(body)
 # Step 6: Close the connection
 clientSocket.close()
 
+exit()  # Exit the program
