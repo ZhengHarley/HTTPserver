@@ -2,13 +2,13 @@ from socket import *
 import re
 
 HOST = '127.0.0.1'
-PORT = 5000
+PORT = 8090
 
 # Step 1: Initialize Socket
 clientSocket = socket(AF_INET, SOCK_STREAM)
 
 # Step 2: Get a URI input
-url = input("Enter the URL:")
+url = input("Enter the URL: ")
 
 # Step 3: Establish TCP connection to server
 clientSocket.connect((HOST, PORT))
