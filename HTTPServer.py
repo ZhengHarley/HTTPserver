@@ -75,3 +75,4 @@ while True:
 
 print("Closing the connection.")
 serverSocket.close()
+exit()  # Exit the program
