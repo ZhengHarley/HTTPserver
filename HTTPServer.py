@@ -9,7 +9,7 @@ import re
 # 3. On your device, type in http://127.0.0.1:8090/test.html in your browser
 #       This should output a 404 File Not Found error
 
-HOST = '127.0.0.1'  # Default IP address for localhost
+HOST = input("Enter your IP address: ") or "127.0.0.1"
 PORT = 8090         # Port Number >1023 to bypass superuser privileges, 8080 typically used for web applications
 
 # Step 1: Initialize the Socket and bind to IP address and port
