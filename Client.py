@@ -6,7 +6,7 @@ clientSocket = socket(AF_INET, SOCK_STREAM)
 
 # Step 2: Get a URI input
 url = input("Enter the URL: ")
-# Convert URL into an HTTP request      http://104.39.97.61:8090/index.html
+# Convert URL into an HTTP request
 url = re.sub("http://", "", url)
 url = re.split("/", url)
 [HOST, PORT] = re.split(":", url[0])
