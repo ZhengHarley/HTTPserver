@@ -1,8 +1,6 @@
 from socket import *
 import re
 
-# Harley's IP: 104.39.74.116            DELETE BEFORE SUBMISSION
-
 HOST = '127.0.0.1'
 PORT = 5000
 
