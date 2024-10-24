@@ -25,11 +25,10 @@ clientSocket.connect((HOST, PORT))
 clientSocket.send(request.encode("utf-8"))
 
 # Step 5: Receive data from the client socket
-message = clientSocket.recv(1024).decode("utf-8")
+message = clientSocket.recv(4096).decode("utf-8")
 # Parse data
 lines = re.split("\n", message)
-status_line = re.split(" ", lines[0])
-status = status_line[1] + status_line[2]
+status = re.sub("HTTP/1.1 ", "", lines[0])
 print("Status: " + status)
 
 # Print the html body
