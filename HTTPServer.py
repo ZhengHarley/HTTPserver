@@ -16,7 +16,7 @@ PORT = 8090         # Port Number >1023 to bypass superuser privileges, 8080 typ
 serverSocket = socket(AF_INET, SOCK_STREAM)
 serverSocket.bind((HOST, PORT))
 print("HTTP Server with IP " + HOST + " and Port " + str(PORT) + " online.")
-
+# ur mom is a push request
 while True:
     # Step 2: Establish a TCP Connection when contacted by client
     serverSocket.listen()
