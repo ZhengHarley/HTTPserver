@@ -4,11 +4,11 @@ import re
 # HOW TO RUN THIS PROGRAM:
 # 1. Go to the HTTPServer.py file on a separate device and type "0" when prompted
 # 2. On this device, run Client.py, and input the url using the following format:
-#       http://xxx.xx.xx.xx:8090/index.html
+#       http://xxx.xxx.xxx.xxx:8090/index.html
 #       The x's is the IP address of the other device
 #       This should show a 200 OK message and the html body
 # 3. Then, rerun the server and the client, now inputting the url using the following format:
-#       http://xxx.xx.xx.xx:8090/test.html
+#       http://xxx.xxx.xxx.xxx:8090/test.html
 #       This should show a 404 Error Not Found message and "File not found" message in the body
 
 # Step 1: Initialize Socket w/ reusable address
@@ -50,4 +50,4 @@ print(body)
 # Step 6: Close the connection
 clientSocket.close()
 
-exit()  # Exit the program
+exit()  # Exit the program 172.17.4.53

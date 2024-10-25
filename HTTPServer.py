@@ -59,7 +59,7 @@ while True:
             status = "200 OK"
             with open(url, 'rb') as file:
                 content = file.read()
-            header = "Content-Type: text/html\r\n" + "Content-Length" + str(len(content)) + "\r\n" + "Connection: close\r\n"
+            header = "Content-Type: text/html\r\n" + "Content-Length: " + str(len(content)) + "\r\n" + "Connection: close\r\n"
 
         else:       # If the file is not in the server directory
             print("File NOT found in server.")
