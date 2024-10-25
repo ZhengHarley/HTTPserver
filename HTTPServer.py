@@ -1,3 +1,4 @@
+import socket as s
 from socket import *
 import os
 import re
@@ -9,7 +10,8 @@ import re
 # 3. On your device, type in http://127.0.0.1:8090/test.html in your browser
 #       This should output a 404 File Not Found error
 
-HOST = input("Enter your IP address: ") or "127.0.0.1"
+hostname = s.gethostname()
+HOST = s.gethostbyname(hostname)
 PORT = 8090         # Port Number >1023 to bypass superuser privileges, 8080 typically used for web applications
 
 # Step 1: Initialize the Socket and bind to IP address and port
