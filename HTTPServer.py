@@ -12,7 +12,7 @@ import re
 #       This should output a 404 File Not Found error
 
 i = input("Type 0 to use your device's IP, otherwise localhost for any other input: ")
-if i == 0:
+if i == "0":
     HOST = s.gethostbyname(s.gethostname())
 else:
     HOST = "127.0.0.1"
