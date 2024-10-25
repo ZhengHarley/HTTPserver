@@ -23,7 +23,7 @@ serverSocket = socket(AF_INET, SOCK_STREAM)
 serverSocket.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
 serverSocket.bind((HOST, PORT))
 print("HTTP Server with IP " + HOST + " and Port " + str(PORT) + " online.")
-# ur mom is a push request
+
 while True:
     # Step 2: Establish a TCP Connection when contacted by client
     serverSocket.listen()
