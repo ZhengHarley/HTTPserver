@@ -5,7 +5,7 @@ import re
 # 1. Go to the HTTPServer.py file on a separate device and type "0" when prompted
 # 2. On this device, run Client.py, and input the url using the following format:
 #       http://xxx.xxx.xxx.xxx:8090/index.html
-#       The x's is the IP address of the other device
+#       "xxx.xxx.xxx.xxx" is the IP address of the other device
 #       This should show a 200 OK message and the html body
 # 3. Then, rerun the server and the client, now inputting the url using the following format:
 #       http://xxx.xxx.xxx.xxx:8090/test.html
@@ -50,4 +50,4 @@ print(body)
 # Step 6: Close the connection
 clientSocket.close()
 
-exit()  # Exit the program 172.17.4.53
+exit()  # Exit the program
