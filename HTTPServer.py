@@ -5,14 +5,20 @@ import re
 
 # HOW TO RUN THIS PROGRAM:
 # 1. Make sure index.html is in the .venv folder along with this Python project
-# 2. On your device, type in http://127.0.0.1:8090/index.html in your browser
+# 2. When prompted, type any value other than "0" (ex. "1") to use the localhost IP
+# 3. On your device, type in http://127.0.0.1:8090/index.html in your browser
 #       This should output the text in index.html
-# 3. On your device, type in http://127.0.0.1:8090/test.html in your browser
+# 4. On your device, type in http://127.0.0.1:8090/test.html in your browser
 #       This should output a 404 File Not Found error
 
-hostname = s.gethostname()
-HOST = s.gethostbyname(hostname)
-PORT = 8090         # Port Number >1023 to bypass superuser privileges, 8080 typically used for web applications
+
+i = input("Type 0 to use your device's IP, otherwise localhost for any other input: ")
+if i == 0:
+    hostname = s.gethostname()
+    HOST = s.gethostbyname(hostname)
+else:
+    HOST = "127.0.0.1"
+PORT = 8090         # Use arbitrary port 8090
 
 # Step 1: Initialize the Socket and bind to IP address and port
 serverSocket = socket(AF_INET, SOCK_STREAM)
