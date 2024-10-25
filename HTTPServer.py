@@ -11,11 +11,9 @@ import re
 # 4. On your device, type in http://127.0.0.1:8090/test.html in your browser
 #       This should output a 404 File Not Found error
 
-
 i = input("Type 0 to use your device's IP, otherwise localhost for any other input: ")
 if i == 0:
-    hostname = s.gethostname()
-    HOST = s.gethostbyname(hostname)
+    HOST = s.gethostbyname(s.gethostname())
 else:
     HOST = "127.0.0.1"
 PORT = 8090         # Use arbitrary port 8090
@@ -29,13 +27,17 @@ while True:
     # Step 2: Establish a TCP Connection when contacted by client
     serverSocket.listen()
     serverSocket.settimeout(60)         # Automatically close the server after a minute of inactivity
-    print("Server socket is listening.")
+    print("Server socket is listening...")
     connSocket, addr = serverSocket.accept()
 
     try:
         # STEP 3: Receive a HTTP request
         http_message = connSocket.recv(1024).decode("utf-8")    # Decode HTTP message from binary to ASCII using utf-8
 
+        print("\nThe HTTP Request Packet Message: \n-----------------------------------")
+        print(http_message)
+
+        print("\nData after parsing request: \n-----------------------------------")
         # STEP 4: Parse the request to determine file
         lines = re.split("\n", http_message)
         # Assume HTTP version 1.1 and GET request
@@ -66,6 +68,8 @@ while True:
 
         # Step 6: Create HTTP response message
         http_response = "HTTP/1.1 " + status + "\r\n" + header + "\r\n"
+        print("\nThe HTTP Response Packet Message: \n-----------------------------------")
+        print(http_response + content.decode("utf-8") + "\n")
 
         # Step 7: Send a TCP response
         connSocket.send(http_response.encode("utf-8") + content)
@@ -78,6 +82,8 @@ while True:
         status = "400 Bad Request"
         content = "Invalid Request!".encode("utf-8")
         http_response = "HTTP/1.1 " + status + "\r\n" + "Connection: close\r\n\r\n"
+        print("\nThe HTTP Response Packet Message: \n-----------------------------------")
+        print(http_response + content.decode("utf-8") + "\n")
         connSocket.send(http_response.encode("utf-8") + content)
         break
 
