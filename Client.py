@@ -23,6 +23,7 @@ url = re.split("/", url)
 link = url[1]
 
 request = "GET /" + link + " HTTP/1.1\r\n" + "Host: " + HOST + ":" + PORT + "\r\n" + "Connection: close\r\n\r\n"
+print("\nThe HTTP Request Packet Message: \n-----------------------------------")
 print(request)
 
 # Step 3: Establish TCP connection to server
@@ -33,6 +34,9 @@ clientSocket.send(request.encode("utf-8"))
 
 # Step 5: Receive data from the client socket
 message = clientSocket.recv(4096).decode("utf-8")
+print("\nThe HTTP Response Packet Message: \n-----------------------------------")
+print(message)
+
 # Parse data
 lines = re.split("\n", message)
 status = re.sub("HTTP/1.1 ", "", lines[0])
