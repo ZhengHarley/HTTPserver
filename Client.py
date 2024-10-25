@@ -11,8 +11,9 @@ import re
 #       http://xxx.xx.xx.xx:8090/test.html
 #       This should show a 404 Error Not Found message and "File not found" message in the body
 
-# Step 1: Initialize Socket
+# Step 1: Initialize Socket w/ reusable address
 clientSocket = socket(AF_INET, SOCK_STREAM)
+clientSocket.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
 
 # Step 2: Get a URI input
 url = input("Enter the URL: ")

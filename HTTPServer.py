@@ -18,8 +18,9 @@ else:
     HOST = "127.0.0.1"
 PORT = 8090         # Use arbitrary port 8090
 
-# Step 1: Initialize the Socket and bind to IP address and port
+# Step 1: Initialize the Socket and bind to IP address and port w/ reusable address
 serverSocket = socket(AF_INET, SOCK_STREAM)
+serverSocket.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
 serverSocket.bind((HOST, PORT))
 print("HTTP Server with IP " + HOST + " and Port " + str(PORT) + " online.")
 # ur mom is a push request
